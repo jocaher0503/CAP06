@@ -1,44 +1,30 @@
 public class CAP06EJ07 {
-    public static String obtenerPleno(){
-        int valor;
-        switch ((int)(Math.random()*4)) {
-            case 0:
-            case 1:
-            case 2:
-                return String.valueOf(valor)              
-            default:
-                return "M";
-        }
-    }
-    public static void imprimirPleno(int linea){
-        System.out.printf("PLENO al 15 - Local...%s Visitante...%s",obtenerPleno());
-    }
-    public static void obtenerApuesta(){
-        switch ((int)(Math.random()*3)) {
-            case 0:
-            case 1:
-            case 2:
-                return "1  "
-                break;
-            case 3:
-            case 4:
-                return " X ";
-                break;
-            case 5:
-            return "  2";
-            default:
-                return "";
-        }
-    }
-    public static void imprimirLinea(int linea){
-        System.out.printf("%2d |%s%s%s|%s%s%s|%s%s%s|", linea, obtenerApuesta(),obtenerApuesta(),obtenerApuesta());
-    }
-    public static void imprimirApuesta(){
-        for(int i=1; i<=14; i++)
-            imprimirLinea(i);
-            imprimirPleno();
-    }
     public static void main(String[] args) {
-        imprimirApuesta();
+    int resultadoPartido;
+    int columnas = 3;
+    for (int fila = 1; fila <= 14; fila++) {
+        System.out.printf("%2d. |", fila);
+    for (int apuesta = 1; apuesta <= columnas; apuesta++) {
+        resultadoPartido = (int)(Math.random() * 3) + 1;
+        switch(resultadoPartido) {
+        case 1:
+            System.out.print("1  |");
+            break;
+        case 2:
+            System.out.print("  2|");
+            break;
+        case 3:
+            System.out.print(" X |");
+        default:
+        }
+    }
+    System.out.println();
+    }
+    System.out.print("\nPLENO AL 15 - Local...");
+    int goles = (int)(Math.random() * 4);
+    System.out.print(goles < 3 ? goles : "M");
+    System.out.print("   Visitante...");
+    goles = (int)(Math.random() * 4);
+    System.out.print(goles < 3 ? goles : "M");
     }
 }
